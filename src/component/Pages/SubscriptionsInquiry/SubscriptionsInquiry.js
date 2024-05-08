@@ -48,7 +48,7 @@ import "../../../index.css";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "#007fc3",
-    color: theme.palette.common.white,
+    color: "#fff",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -57,7 +57,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.BackgroundRowColor,
+    backgroundColor: "#DFE3E8",
   },
   "&:last-child td, &:last-child th": {
     border: 0,
@@ -189,7 +189,11 @@ const SubscriptionsInquiry = () => {
       },
     });
     worksheet.addRow([fileName]);
-    worksheet.addRow(["تاريخ الفاتورة ", "قيمة الفاتورة", "كمية الاستهلاك"]);
+    worksheet.addRow([
+      " تاريخ الفاتورة ",
+      " إجمالي قيمة الفاتورة ",
+      " كمية الاستهلاك ",
+    ]);
     customHeadings.map((e) =>
       worksheet.addRow([e.billingKeyDate, e.billAmount, e.consumptionQty])
     );
