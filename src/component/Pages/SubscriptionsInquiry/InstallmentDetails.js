@@ -27,7 +27,7 @@ const InstallmentDetails = () => {
               عدد الاقساط الكلية :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.installmentPlanData?.noOfInstallments}
+              {customerInfo?.InstallmentPlanData?.NoOfInstallments}
             </Typography>
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
@@ -35,7 +35,7 @@ const InstallmentDetails = () => {
               مبلغ إجمالي للأقساط :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.installmentPlanData?.totalAmount}
+              {customerInfo?.InstallmentPlanData?.TotalAmount}
             </Typography>
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
@@ -43,7 +43,7 @@ const InstallmentDetails = () => {
               عدد الاقساط المدفوعة :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.installmentPlanData?.noOfClearedInstallments}
+              {customerInfo?.InstallmentPlanData?.NoOfClearedInstallments}
             </Typography>
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
@@ -51,7 +51,7 @@ const InstallmentDetails = () => {
               المبلغ المدفوع :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.installmentPlanData?.clearedAmount}
+              {customerInfo?.InstallmentPlanData?.ClearedAmount}
             </Typography>
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
@@ -59,7 +59,7 @@ const InstallmentDetails = () => {
               عدد الاقساط المتبقية :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.installmentPlanData?.noOfUnclearedInstallments}
+              {customerInfo?.InstallmentPlanData?.NoOfUnclearedInstallments}
             </Typography>
           </Grid>
           <Grid item xs={12} md={12} lg={12}>
@@ -67,7 +67,7 @@ const InstallmentDetails = () => {
               المبلغ المتبقي :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.installmentPlanData?.unclearedAmount}
+              {customerInfo?.InstallmentPlanData?.UnclearedAmount}
             </Typography>
           </Grid>
         </Grid>

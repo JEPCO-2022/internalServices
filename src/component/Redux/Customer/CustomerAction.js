@@ -29,29 +29,45 @@ export const ErrorCustomerInfo = (data) => {
 
 // Fetching API calls
 var errorFlagGetSapCustomerInfo = 0;
+
+export const basicAuth = () => async () => {
+  const encodedCredentials = btoa("SAPApi:SAPApi@jepco@123");
+  const response = axios.post(
+    `${API_URL}/api/ApisLoginController/IntegrationUserAuth`,
+    {
+      source: "subscription-inquery-callcenter-project",
+    },
+    {
+      withCredentials: true,
+      headers: {
+        Authorization: `Basic ${encodedCredentials}`,
+      },
+    }
+  );
+
+  try {
+    const auth = await axios(response);
+    console.log(auth);
+  } catch (error) {
+    console.log(error);
+  }
+};
 export const GetSapCustomerInfo = (props) => async (dispatch) => {
   dispatch(RequestCustomerInfo(true));
-  const baseURL = `${API_URL}/ApisLoginController/Login`;
-  const response = await axios.post(`${baseURL}`, {
-    username: "VIPCustomersPortalAppIntegrationUser",
-    password: "VIPCustomersPortalApp@jepco@123",
-  });
-  const userToken = response.data.body.token;
-  if (userToken) {
-    const data = props;
+  try {
     const config = {
       method: "post",
-      url: `${API_URL}/MainDashbord/GetSapCustomerInfo`,
+      url: `${API_URL}/api/Inquiry/GetSapCustomerInfo`,
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userToken}`,
       },
-      data: data,
+      withCredentials: true,
+      data: props,
     };
     errorFlagGetSapCustomerInfo++;
     try {
       const fileDataAPIResponce = await axios(config);
-      const fileData = fileDataAPIResponce.data.body;
+      const fileData = fileDataAPIResponce.data.Body;
       dispatch(SetCustomerInfo(fileData));
       dispatch(RequestCustomerInfo(false));
       dispatch(ErrorCustomerInfo(0));
@@ -60,6 +76,5 @@ export const GetSapCustomerInfo = (props) => async (dispatch) => {
       dispatch(SetCustomerInfo([]));
       dispatch(ErrorCustomerInfo(errorFlagGetSapCustomerInfo));
     }
-  } else {
-  }
+  } catch (error) {}
 };

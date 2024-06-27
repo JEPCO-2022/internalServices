@@ -27,7 +27,7 @@ const VigilantDetails = () => {
             مبلغ إجمالي العبث :
           </InputLabel>
           <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-            {customerInfo?.vigilanceData?.vigilanceTotalAmt}
+            {customerInfo?.VigilanceData?.VigilanceTotalAmt}
           </Typography>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
@@ -35,7 +35,7 @@ const VigilantDetails = () => {
             مبلغ العبث المطلوب :
           </InputLabel>
           <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-            {customerInfo?.vigilanceData?.vigilanceUnClearedAmt}
+            {customerInfo?.VigilanceData?.VigilanceUnClearedAmt}
           </Typography>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
@@ -43,7 +43,7 @@ const VigilantDetails = () => {
             مبلغ العبث المدفع :
           </InputLabel>
           <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-            {customerInfo?.vigilanceData?.vigilanceClearedAmt}
+            {customerInfo?.VigilanceData?.VigilanceClearedAmt}
           </Typography>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
@@ -51,7 +51,7 @@ const VigilantDetails = () => {
             عدد معاملات العبث المفتوحة :
           </InputLabel>
           <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-            {customerInfo?.vigilanceData?.caseOpen}
+            {customerInfo?.VigilanceData?.CaseOpen}
           </Typography>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
@@ -59,7 +59,7 @@ const VigilantDetails = () => {
             عدد معاملات العبث المغلقة :
           </InputLabel>
           <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-            {customerInfo?.vigilanceData?.caseClos}
+            {customerInfo?.VigilanceData?.CaseClos}
           </Typography>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
