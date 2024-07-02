@@ -44,8 +44,8 @@ import SubscriptionDetails from "./SubscriptionDetails";
 import VigilantDetails from "./VigilantDetails";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#0C0D5A",
-    color: theme.palette.common.white,
+    backgroundColor: "rgb(25, 118, 210)",
+    color: "white",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -54,7 +54,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.BackgroundRowColor,
+    backgroundColor: "#eee",
   },
   "&:last-child td, &:last-child th": {
     border: 0,
@@ -172,6 +172,7 @@ const SubscriptionsInquiry = () => {
           billingKeyDate: curr.BillingKeyDate,
           billAmount: curr.BillAmount,
           consumptionQty: curr.ConsumptionQty,
+          BillStatus: curr.BillStatus,
         },
       ];
     }, []);
@@ -186,16 +187,27 @@ const SubscriptionsInquiry = () => {
       },
     });
     worksheet.addRow([fileName]);
-    worksheet.addRow(["تاريخ الفاتورة ", "قيمة الفاتورة ", "كمية الاستهلاك "]);
+    worksheet.addRow([
+      "تاريخ الفاتورة ",
+      "قيمة الفاتورة ",
+      "كمية الاستهلاك ",
+      " حالة الفاتورة ",
+    ]);
 
     customHeadings.map((e) =>
-      worksheet.addRow([e.billingKeyDate, e.billAmount, e.consumptionQty])
+      worksheet.addRow([
+        e.billingKeyDate,
+        e.billAmount,
+        e.consumptionQty,
+        e.BillStatus,
+      ])
     );
     worksheet.columns[0].width = 10;
     worksheet.columns[1].width = 20;
     worksheet.columns[2].width = 20;
+    worksheet.columns[3].width = 20;
 
-    worksheet.mergeCells("A1:C1");
+    worksheet.mergeCells("A1:D1");
     worksheet.eachRow((row) => {
       row.eachCell((cell) => {
         cell.alignment = { horizontal: "center", vertical: "middle" };
@@ -229,7 +241,7 @@ const SubscriptionsInquiry = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} md={12} lg={12}>
                 <Typography variant="h4" component="h1" paragraph>
-                  الاستعلام عن الشركات
+                  الاستعلام عن الإشتراكات
                 </Typography>
                 <Divider />
               </Grid>
@@ -442,6 +454,9 @@ const SubscriptionsInquiry = () => {
                   <StyledTableCell align="center">
                     كمية الاستهلاك
                   </StyledTableCell>
+                  <StyledTableCell align="center">
+                    حالة الفاتورة
+                  </StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -455,6 +470,9 @@ const SubscriptionsInquiry = () => {
                     </StyledTableCell>
                     <StyledTableCell align="center" component="th" scope="row">
                       {bill?.ConsumptionQty}
+                    </StyledTableCell>
+                    <StyledTableCell align="center" component="th" scope="row">
+                      {bill?.BillStatus}
                     </StyledTableCell>
                   </StyledTableRow>
                 ))}

@@ -138,7 +138,7 @@ const SubscriptionDetails = () => {
                   الطاقة المستجرة :
                 </InputLabel>
                 <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-                  {customerInfo?.SubscriptionInfoData?.lastRegistersRead1}
+                  {customerInfo?.SubscriptionInfoData?.LastRegistersRead1}
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6} lg={6}>
@@ -146,7 +146,7 @@ const SubscriptionDetails = () => {
                   الطاقة المصدرة :
                 </InputLabel>
                 <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-                  {customerInfo?.SubscriptionInfoData?.lastRegistersRead2}
+                  {customerInfo?.SubscriptionInfoData?.LastRegistersRead2}
                 </Typography>
               </Grid>
             </>
