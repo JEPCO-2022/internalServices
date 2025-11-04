@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.css-1fu7jd5-MuiButtonBase-root-MuiButton-root{
+  background-color: rgb(0, 61, 118) !important;
+}
+.css-1nndjcp-MuiTypography-root{
+  color: rgb(0, 61, 118) !important;
+}

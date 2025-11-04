@@ -1,10 +1,10 @@
 import React from "react";
-import logoWide from "../Images/logo-wide.png";
+import logoWide from "../Images/jepco.png";
 
 function Header() {
   return (
-    <div>
-      <img width={"200rem"} height={110} src={logoWide} alt="" />
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <img style={{ width: "450px", height: "15%" }} src={logoWide} alt="Company Logo" />
     </div>
   );
 }

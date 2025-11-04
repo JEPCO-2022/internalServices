@@ -4,7 +4,10 @@ import { useSelector } from "react-redux";
 
 const SubscriptionDetails = () => {
   const customerInfo = useSelector((state) => state.Customer.customerInfo);
+  // console.log(customerInfo.subscriptionInfoData);
 
+  //  "instplanCommitmentFlag": "3",
+  //"noRegisters": "1",
   return (
     <>
       <Card
@@ -19,24 +22,40 @@ const SubscriptionDetails = () => {
       >
         <Grid container spacing={2}>
           <Grid item xs={12} md={12} lg={12}>
-            <Typography variant="h4" component="h1" paragraph color="#2065D1">
+            <Typography
+              sx={{
+                fontSize: 30,
+                fontWeight: 700, // 👈 strongest (extra bold)
+                color: "rgb(0, 61, 118)",
+              }}
+              paragraph
+              color="#2065D1"
+            >
               معلومات الاشتراك
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          {/* <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
-              رقم العقد :
+              اسم المستفيد :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.Contract}
+              {customerInfo?.subscriptionInfoData?.BenefecaryName}
             </Typography>
-          </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          </Grid> */}
+          {/* <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
-              رقم المرجع :
+              الرقم الوطني للمستفيد :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.FileNo}
+              {customerInfo?.subscriptionInfoData?.BenefecaryID}
+            </Typography>
+          </Grid> */}
+          <Grid item xs={12} md={6} lg={6}>
+            <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
+              اسم المشترك :
+            </InputLabel>
+            <Typography sx={{ display: "inline", fontWeight: "bold" }}>
+              {customerInfo?.subscriptionInfoData?.customerName}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
@@ -44,23 +63,40 @@ const SubscriptionDetails = () => {
               رقم الاشتراك :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.Installation}
+              {customerInfo?.subscriptionInfoData?.installation}
             </Typography>
           </Grid>
+          <Grid item xs={12} md={6} lg={6}>
+            <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
+              رقم العقد :
+            </InputLabel>
+            <Typography sx={{ display: "inline", fontWeight: "bold" }}>
+              {customerInfo?.subscriptionInfoData?.contract}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6} lg={6}>
+            <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
+              رقم المرجع :
+            </InputLabel>
+            <Typography sx={{ display: "inline", fontWeight: "bold" }}>
+              {customerInfo?.subscriptionInfoData?.fileNo}
+            </Typography>
+          </Grid>
+
           <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               رقم العداد :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.MeterNo}
+              {customerInfo?.subscriptionInfoData?.meterNo}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
-              ملتزم بالاقساط :
+              خطة تقسيط :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.InstplanCommitmentText}
+              {customerInfo?.subscriptionInfoData?.instplanCommitmentText}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
@@ -68,7 +104,7 @@ const SubscriptionDetails = () => {
               حالة العداد :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.MeterStatus}
+              {customerInfo?.subscriptionInfoData?.meterStatus}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
@@ -76,23 +112,16 @@ const SubscriptionDetails = () => {
               نوع الاشتراك :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.RateCatDesc}
+              {customerInfo?.subscriptionInfoData?.rateCatDesc}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
-            <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
-              اسم المشترك :
-            </InputLabel>
-            <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.CustomerName}
-            </Typography>
-          </Grid>
+
           <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               رصيد المشترك :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.CustomerBalance}
+              {customerInfo?.subscriptionInfoData?.customerBalance} د.أ
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
@@ -100,7 +129,7 @@ const SubscriptionDetails = () => {
               المكتب :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.Office}
+              {customerInfo?.subscriptionInfoData?.office}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
@@ -108,7 +137,7 @@ const SubscriptionDetails = () => {
               نوع العداد :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.MeterType}
+              {customerInfo?.subscriptionInfoData?.meterType}
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={6}>
@@ -116,21 +145,21 @@ const SubscriptionDetails = () => {
               تاريخ اخر قراءة :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-              {customerInfo?.SubscriptionInfoData?.LastRegistersReadDate}
+              {customerInfo?.subscriptionInfoData?.lastRegistersReadDate}
             </Typography>
           </Grid>
-          {customerInfo?.SubscriptionInfoData?.LastRegistersRead2.trim()
+          {customerInfo?.subscriptionInfoData?.lastRegistersRead2.trim()
             .length === 0 && (
             <Grid item xs={12} md={6} lg={6}>
               <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
                 أخر قراءة :
               </InputLabel>
               <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-                {customerInfo?.SubscriptionInfoData?.LastRegistersRead1}
+                {customerInfo?.subscriptionInfoData?.lastRegistersRead1}
               </Typography>
             </Grid>
           )}
-          {customerInfo?.SubscriptionInfoData?.LastRegistersRead2.trim()
+          {customerInfo?.subscriptionInfoData?.lastRegistersRead2.trim()
             .length !== 0 && (
             <>
               <Grid item xs={12} md={6} lg={6}>
@@ -138,7 +167,7 @@ const SubscriptionDetails = () => {
                   الطاقة المستجرة :
                 </InputLabel>
                 <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-                  {customerInfo?.SubscriptionInfoData?.LastRegistersRead1}
+                  {customerInfo?.subscriptionInfoData?.lastRegistersRead1}
                 </Typography>
               </Grid>
               <Grid item xs={12} md={6} lg={6}>
@@ -146,7 +175,7 @@ const SubscriptionDetails = () => {
                   الطاقة المصدرة :
                 </InputLabel>
                 <Typography sx={{ display: "inline", fontWeight: "bold" }}>
-                  {customerInfo?.SubscriptionInfoData?.LastRegistersRead2}
+                  {customerInfo?.subscriptionInfoData?.lastRegistersRead2}
                 </Typography>
               </Grid>
             </>

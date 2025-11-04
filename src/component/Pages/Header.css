@@ -1,0 +1,54 @@
+.header-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.logo-wrap{
+  width:450px;
+  height:auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.logo-img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* default slow spin */
+.logo-wrap.spin .logo-img{
+  animation: logo-spin 8s linear infinite;
+  transform-origin: center center;
+}
+
+/* paused state */
+.logo-wrap.paused .logo-img{
+  animation-play-state: paused;
+}
+
+/* speed up on hover */
+.logo-wrap.spin:hover .logo-img{
+  animation-duration: 2s;
+}
+
+@keyframes logo-spin{
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.logo-controls{
+  display:flex;
+  gap:8px;
+}
+.logo-control-btn{
+  background: #0b5ed7;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.logo-control-btn:hover{ background:#0646a6 }

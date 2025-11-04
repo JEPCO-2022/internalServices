@@ -1,10 +1,12 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import "./index.css";
 import { Card } from "@mui/material";
 import SubscriptionsInquiry from "./component/Pages/SubscriptionsInquiry/SubscriptionsInquiry";
 import Header from "./component/Pages/Header";
-function App() {
+
+const App: React.FC = () => {
   return (
     <div className="App">
       <Card
@@ -15,13 +17,13 @@ function App() {
           direction: "rtl",
         }}
       >
-          <Header />
+        <Header />
         <Routes>
           <Route path="/" element={<SubscriptionsInquiry />} />
         </Routes>
       </Card>
     </div>
   );
-}
+};
 
 export default App;

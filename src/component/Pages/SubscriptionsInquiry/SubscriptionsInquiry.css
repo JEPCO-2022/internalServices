@@ -1,0 +1,36 @@
+.animated-card{
+  opacity: 0;
+  transform: translateY(16px) scale(0.995);
+  animation-name: enter-up;
+  animation-duration: 420ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.2,.8,.2,1);
+  animation-delay: var(--delay, 0ms);
+  display: flex; /* allow child Card to stretch */
+  flex-direction: column;
+  height: 100%;
+}
+
+@keyframes enter-up{
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animated-card:nth-child(1){ --delay: 60ms }
+.animated-card:nth-child(2){ --delay: 140ms }
+.animated-card:nth-child(3){ --delay: 220ms }
+
+/* Ensure important form inputs are above the animated cards so they remain interactive */
+.search-field,
+.phone-field{
+  position: relative;
+  z-index: 60; /* higher than animated cards */
+  pointer-events: auto;
+}
+
+/* ensure the direct child (usually a Card) expands to fill the wrapper */
+.animated-card > * {
+  flex: 1 1 auto;
+}
