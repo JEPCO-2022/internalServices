@@ -46,7 +46,7 @@ const VigilantDetails = () => {
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
           <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
-            مبلغ العبث المدفع :
+            مبلغ العبث المدفوع :
           </InputLabel>
           <Typography sx={{ display: "inline", fontWeight: "bold" }}>
             {customerInfo?.vigilanceData?.vigilanceClearedAmt}
