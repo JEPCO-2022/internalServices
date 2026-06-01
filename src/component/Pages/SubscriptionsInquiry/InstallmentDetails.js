@@ -31,14 +31,14 @@ const InstallmentDetails = () => {
               معلومات الاقساط
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          {/* <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               عدد خطط التقسيط :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
               {customerInfo?.installmentPlanData?.NoOfInstallmentPlans}
             </Typography>
-          </Grid>{" "}
+          </Grid>{" "} */}
           <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               المبلغ الإجمالي للأقساط :
@@ -47,22 +47,22 @@ const InstallmentDetails = () => {
               {customerInfo?.installmentPlanData?.totalAmount}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6} lg={6}>
+          {/* <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               عدد خطط التقسيط المفتوحة :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
               {customerInfo?.installmentPlanData?.NoOfOpenInstallmentPlans}
             </Typography>
-          </Grid>{" "}
-          <Grid item xs={12} md={6} lg={6}>
+          </Grid>{" "} */}
+          {/* <Grid item xs={12} md={6} lg={6}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               عدد خطط التقسيط المغلقة :
             </InputLabel>
             <Typography sx={{ display: "inline", fontWeight: "bold" }}>
               {customerInfo?.installmentPlanData?.NoOfClosedInstallmentPlans}
             </Typography>
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} md={12} lg={12}>
             <InputLabel sx={{ display: "inline", fontWeight: "bold" }}>
               عدد الاقساط الكلية :

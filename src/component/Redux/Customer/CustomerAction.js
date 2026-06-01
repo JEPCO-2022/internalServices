@@ -125,7 +125,7 @@ export const IntegrationAuth = (username, password) => async (dispatch) => {
     // 👇 body as JSON
     const body = {
       client_id: "InternalServices-WebUser",
-      client_secret: "rJ2tPFzhqI7AUsazSueLCuAiyv8Km2D9",
+      client_secret: "alb2VeD58oMPmO6VHEmd9NvWkTMw3tmZ",
       grant_type: "", //
       username: "",
       password: "",
