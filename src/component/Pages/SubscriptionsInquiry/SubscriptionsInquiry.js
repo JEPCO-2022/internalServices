@@ -112,13 +112,9 @@ const SubscriptionsInquiry = () => {
   );
   const errorGetData = useSelector((state) => state.Customer.errorGetData);
   const [fileUrl, setFileUrl] = useState(null);
-  const base64Data = useSelector(
-    (state) => state.Customer.printingAccountStatement
-  );
   const errorPrintingAccountStatement = useSelector(
     (state) => state.Customer.errorPrintingAccountStatement
   );
-  // console.log("base64Data", base64Data);
   const [openPreview, setOpenPreview] = useState(false);
   const [selectedReport, setSelectedReport] = useState(
     "OutstandingBillStatment"
@@ -837,20 +833,13 @@ const SubscriptionsInquiry = () => {
                 return null;
               });
 
-              const base64Data = await dispatch(
+              const pdfBlob = await dispatch(
                 PrintingAccountStatement(payload)
               );
 
-              if (base64Data) {
+              if (pdfBlob) {
                 // ✅ لو في ملف PDF
-                const byteCharacters = atob(base64Data);
-                const byteNumbers = Array.from(byteCharacters).map((c) =>
-                  c.charCodeAt(0)
-                );
-                const byteArray = new Uint8Array(byteNumbers);
-                const blob = new Blob([byteArray], { type: "application/pdf" });
-
-                setFileUrl(URL.createObjectURL(blob));
+                setFileUrl(URL.createObjectURL(pdfBlob));
                 setOpenPreview(true); // 👈 يفتح المودال فوراً
               } else {
                 // ✅ إما رجع فاضي أو Error

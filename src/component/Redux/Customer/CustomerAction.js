@@ -125,8 +125,8 @@ export const IntegrationAuth = (username, password) => async (dispatch) => {
     // 👇 body as JSON
     const body = {
       client_id: "InternalServices-WebUser",
-      client_secret: "alb2VeD58oMPmO6VHEmd9NvWkTMw3tmZ",
-      grant_type: "", //
+      client_secret: "rJ2tPFzhqI7AUsazSueLCuAiyv8Km2D9",
+      grant_type: "client_credentials", //
       username: "",
       password: "",
     };
@@ -210,14 +210,15 @@ export const PrintingAccountStatement = (props) => async (dispatch) => {
     const config = {
       method: "get",
       url: `${API_URL}/v1/Inquiry/PrintBy/${installation}?${queryString}`,
+      responseType: "blob",
       headers: {
-        "Content-Type": "application/json",
+        Accept: "application/pdf",
         Authorization: `Bearer ${token}`,
       },
     };
 
     const res = await axios(config);
-    const fileData = res.data?.data?.base64Data || "";
+    const fileData = res.data;
 
     dispatch(GetPrintingAccountStatement(fileData));
     dispatch(ErrorPrintingAccountStatement(null));
